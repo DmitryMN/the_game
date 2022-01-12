@@ -2,14 +2,8 @@ import React from "react";
 import Board from "./Board";
 
 
-type GamePropsType = {
-    text: string
-}
 
 class Game extends React.Component {
-    constructor(props: GamePropsType) {
-        super(props);
-    }
 
     render() {
         return (

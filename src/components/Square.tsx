@@ -1,30 +1,21 @@
 import React from "react";
+import {SquaresType} from "./Board";
 
 interface SquarePropsType {
-    value: number
+    value: SquaresType
+    callBack: () => void
 }
 
-interface SquareState {
-    value: any
-}
-
-class Square extends React.Component<SquarePropsType, SquareState> {
-    constructor(props: SquarePropsType) {
-        super(props);
-        this.state = {
-            value: null
-        };
-    }
+class Square extends React.Component<SquarePropsType> {
 
     onChangeValue() {
-        this.setState({value: "X"});
+        this.props.callBack();
     }
-
 
     render() {
         return (
             <button className="square" onClick={this.onChangeValue.bind(this)}>
-                {this.state.value}
+                {this.props.value}
             </button>
         );
     }
