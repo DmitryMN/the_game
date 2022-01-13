@@ -1,24 +1,22 @@
 import React from "react";
 import {SquaresType} from "./Board";
 
-interface SquarePropsType {
+type SquarePropsType = {
     value: SquaresType
     callBack: () => void
 }
 
-class Square extends React.Component<SquarePropsType> {
+const Square = (props: SquarePropsType) => {
 
-    onChangeValue() {
-        this.props.callBack();
+    const onChangeValue = () => {
+        props.callBack();
     }
 
-    render() {
         return (
-            <button className="square" onClick={this.onChangeValue.bind(this)}>
-                {this.props.value}
+            <button className="square" onClick={onChangeValue.bind(this)}>
+                {props.value}
             </button>
         );
-    }
 }
 
 export default Square;
